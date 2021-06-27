@@ -1,5 +1,5 @@
 ###################################################################################################
-from IPython.display import clear_output
+
 #Basic code
 
 row1 = [' ',' ',' ']
@@ -8,14 +8,29 @@ row2 = [' ',' ',' ']
 
 row3 = [' ',' ',' ']
 
-player1 = input('Please player 1 please pick either X or O: ')
-
-player2 = input('Please player 2 please pick either X or O: ')
 
 
+################################################################################
 
+def player_check():
+    #check player has no doubles
+    player1 = input('Please player 1 pick either X or O: ')
+    player2 = False
+    
+    while player2 == False:
+        if player1.upper() == 'X':
+            player2 = 'O'
+        elif player1.upper() == 'O':
+            player2 = 'X'
+        else:
+            print("Sorry that is neither 'X' or 'O' please try again!")
+            break
+    return [player1,player2]
 
-######################################################################################################
+players = player_check()
+
+print(players) 
+    
 def display(r1,r2,r3):
     print(row1)
     print(row2)
@@ -54,26 +69,10 @@ def user_choice():
                 print('sorry that is not within 0-9')
                 within_range = False
     return int(choice)
-idk = user_choice()
 
-# if choice.isdigit():
-    
-#     for num in numbers:
-    
-   
-#         if num == 1 or num == 2 or num == 3:
-#            row1[first_move-1] = 'X'
-#            numbers.remove(first_move)
-#            break
-#         if num == 4 or num == 5 or num == 6:
-#             row2[first_move-1] = 'X'
-#             numbers.remove(first_move)
-#             break
-#         if num == 7 or num == 8 or num == 9:
-#             row3[first_move-1] = 'X'
-#             numbers.remove(first_move)
-#             break
-# else:
-#          print('number not allowed, need to fix this BUG')
+first_choice = user_choice()
+
+
+
     
 
