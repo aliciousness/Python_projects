@@ -44,7 +44,7 @@ def display(r1,r2,r3):
     else:
         pass
 
-dipslay_board = display(row1,row2,row3)
+display(row1,row2,row3)
 
 def user_choice():
     #variables
@@ -83,18 +83,60 @@ def user_choice():
     return [int(choice),int(row)]
 
 first_choice = user_choice()
-print(first_choice)
-def move(choice):
+# print(first_choice)
+
+def move(choice,play):
     #moves on the board
-    move_choice = first_choice[0]
-    row_choice = first_choice[1]
-    pass
-    #replace moves on the board
+    move_choice = choice[0]
+    row_choice = choice[1]
     
+    player1 = play[0]
+    player2 = play[1]
+    
+    #replace moves on the board
+    if row_choice ==1:
+        row1[move_choice-1] = player1
+    elif row_choice == 2:
+        row2[move_choice-1] = player1
+    elif row_choice == 3:
+        row3[move_choice-1] = player1 
+    else:
+        pass
     
     
     #display new board
-   
+    # print(display(row1,row2,row3))
+
+def game_on_choice():
+    choice = 'wrong'
     
+    while choice not in ['Y','N']:
+        choice = input("Would you like to keep play? (Y or N)")
+        if choice not in ['Y','N']:
+            print('Sorry i do not understand please input Y or N')
+    if choice == 'Y':
+        return True
+    else:
+        return False
+   
+game_on = True
+
+while game_on:
+    
+    # player_check()
+    display(row1,row2,row3)
+    
+    user_choice()
+    
+    move(first_choice,players)
+    
+    # user_choice()
+    
+    game_on = game_on_choice()
+    
+    
+
+    
+
     
 
