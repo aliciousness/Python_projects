@@ -18,7 +18,7 @@ def player_check():
     player2 = False
     
     while player2 == False:
-        player1 = input('Please player 1 pick either X or O: ')
+        player1 = input('Please pick either X or O: ')
     
         if player1.upper() == 'X':
             player1 = 'X'
@@ -31,9 +31,9 @@ def player_check():
             
     return [player1,player2]
 
-players = player_check()
+players = player_check
 
-print(players) 
+ 
     
 def display(r1,r2,r3):
     print(row1)
@@ -80,10 +80,12 @@ def user_choice():
             else:
                 print('sorry that is not within 1-3')
                 within_range_choice = False
-    return [int(choice),int(row)]
+    moves_choice = [int(choice),int(row)]
+    
+    return moves_choice
 
-first_choice = user_choice()
-# print(first_choice)
+first_choice = user_choice
+
 
 def move(choice,play):
     #moves on the board
@@ -105,34 +107,35 @@ def move(choice,play):
     
     
     #display new board
-    # print(display(row1,row2,row3))
+    return row1,row2,row3
 
 def game_on_choice():
     choice = 'wrong'
     
-    while choice not in ['Y','N']:
+    while choice.upper() not in ['Y','N']:
         choice = input("Would you like to keep play? (Y or N)")
-        if choice not in ['Y','N']:
+        if choice.upper() not in ['Y','N']:
             print('Sorry i do not understand please input Y or N')
-    if choice == 'Y':
+    if choice.upper() == 'Y':
         return True
     else:
         return False
    
 game_on = True
-
+game_list = row1,row2,row3
 while game_on:
     
-    # player_check()
-    display(row1,row2,row3)
     
-    user_choice()
     
-    move(first_choice,players)
+    game_list = move(first_choice(),players())
     
     # user_choice()
     
+    display(row1,row2,row3)
+    
     game_on = game_on_choice()
+    
+    print('\n'*100)
     
     
 
