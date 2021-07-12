@@ -66,6 +66,11 @@ class Player():
     def hit(self,add):
         #dealing one card and removing it from the all cards list
         self.hand.append(add)
+        n=0
+        for x in self.hand:
+           n+=x
+        print(n)
+        return n
         
         
     
@@ -75,21 +80,126 @@ class Player():
    
     
     def stay(self):
-        for x in self.all_cards:
-           x+=x
-        return x
+        n=0
+        for x in self.hand:
+           n+=x
+        print(n)
+        return n
+        
 
 
-
+'''
 new_deck = Deck()
 new_deck.shuffle()
 p1 = Player('Richard')
 d = new_deck.deal_one()
+a = new_deck.deal_one()
 p1.hit(d.value)
-p1.hit(d.value)
-p1.hit(d.value)
+p1.hit(a.value)
+# print(len(new_deck.all_cards))
+print(p1.hand)
 #stuck here keeps repeating the same card when dealt 
-
+p1.stay()
 #p1.clear()
 #print()
 print(p1.hand)
+'''
+
+
+
+
+'''
+l = 0
+to = [1,2,3]
+
+for t in to:
+    l+=t
+    
+print(l)
+'''
+new_deck = Deck()
+new_deck.shuffle()
+
+p1 = Player('Player1')
+p2 = Player('Computer')
+
+game_round = 0
+game_on = True
+
+while game_on:
+    comp_turn = True
+    player_turn = True
+    cal_player = True
+    cal_sum = True
+    g=0 
+    comp_hand = 0
+    
+    while player_turn:
+        d = new_deck.deal_one() 
+        cur_hand = 0
+        choice1 = input(f'You have a new card would you like to hit or stay? ')
+        if choice1 == 'hit':
+            p1.hit(d.value)
+            continue
+        elif choice1 =='stay':
+            p1.stay()
+            player_turn = False
+            break
+        else:
+            print('Sorry that is not one of the options, please try again')
+            print(p1.hand)
+    
+    while cal_sum:
+            
+        for x in p1.hand:
+            g+=x
+        print(g)
+        
+        if g > 21:
+            print('BUST! Sorry you have lost his round')
+            game_round += 1
+            cal_sum = False
+            comp_turn = False
+            p1.clear()
+            break
+        elif g <= 21:
+            cur_hand = g
+            game_round += 1
+            print(f'Your total is {g}')
+            p1.clear()
+            
+            break
+    
+    while comp_turn:
+        
+        if comp_hand == 0:
+            comp_hand = p2.hit(d.value)
+            
+        if comp_hand < 21 and comp_hand < g:
+            comp_hand += p2.hit(d.value)
+            
+        elif comp_hand > g and comp_hand <= 21:
+            p2.stay()
+            print(f'the house got {comp_hand}')
+            p2.clear()
+            
+            break
+        elif comp_hand > 21:
+            print(f'You have beaten the house, the house total {comp_hand}')
+            p2.clear()
+            
+            break
+        
+            
+    print(f'game round: {game_round}')
+    if len(new_deck.all_cards) == 0:
+        print('Game over, need a new deck!')
+        game_on = False       
+           
+        
+        
+        
+        
+        
+    
+        
