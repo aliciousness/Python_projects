@@ -181,7 +181,7 @@ while game_on:
             
         elif comp_hand > g and comp_hand <= 21:
             p2.stay()
-            print(f'the house got {comp_hand}')
+            print(f'the house got {comp_hand}, and the house has won')
             p2.clear()
             
             break
@@ -193,6 +193,7 @@ while game_on:
         
             
     print(f'game round: {game_round}')
+    print(f'There are {len(new_deck.all_cards)} cards left')
     if len(new_deck.all_cards) == 0:
         print('Game is over we are out of cards')
         game_on = False
