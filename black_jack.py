@@ -175,7 +175,7 @@ while game_on:
         if comp_hand == 0:
             comp_hand = p2.hit(d.value)
             
-        if comp_hand < 21 and comp_hand > g:
+        if comp_hand < 21 and comp_hand >= g:
             comp_hand += p2.hit(d.value)
             
         elif comp_hand > g and comp_hand <= 21:
@@ -190,16 +190,18 @@ while game_on:
             
             break
         
+        
             
     print(f'game round: {game_round}')
     if len(new_deck.all_cards) == 0:
         print('Game over, need a new deck!')
-        game_on = False       
+        game_on = False
+    if comp_hand == g or comp_hand > g:
+        print('the House has won')
+    
+               
            
         
         
         
-        
-        
     
-        
