@@ -17,7 +17,7 @@ values = {
     'Jack':10,
     'Queen':10,
     'King':10,
-    'Ace':11
+    'Ace':1
     }
 
 suits = ('Hearts','Diamonds','Spades','Clubs')
@@ -126,6 +126,9 @@ p2 = Player('Computer')
 game_round = 0
 game_on = True
 
+for x in new_deck.all_cards:
+    print(x.value)            #checking cards and the value contributed to it
+
 while game_on:
     comp_turn = True
     player_turn = True
@@ -174,10 +177,11 @@ while game_on:
     while comp_turn:
         
         if comp_hand == 0:
-            comp_hand = p2.hit(d.value)
+            comp_hand += p2.hit(d.value)
             
         if comp_hand < 21 and comp_hand < g:
             comp_hand += p2.hit(d.value)
+            print(p2.hit(d.value),'hti')
             
         elif comp_hand > g and comp_hand <= 21:
             p2.stay()
