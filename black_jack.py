@@ -147,13 +147,13 @@ while game_on:
             break
         else:
             print('Sorry that is not one of the options, please try again')
-            print(p1.hand)
+            
     
     while cal_sum:
             
         for x in p1.hand:
             g+=x
-        print(g)
+        
         
         if g > 21:
             print('BUST! Sorry you have lost his round')
