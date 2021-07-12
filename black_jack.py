@@ -120,7 +120,7 @@ print(l)
 new_deck = Deck()
 new_deck.shuffle()
 
-p1 = Player('Player1')
+p1 = Player('Richard')
 p2 = Player('Computer')
 
 game_round = 0
@@ -147,16 +147,16 @@ while game_on:
             break
         else:
             print('Sorry that is not one of the options, please try again')
-            
+            print(p1.hand)
     
     while cal_sum:
             
         for x in p1.hand:
             g+=x
-        
+        print(g)
         
         if g > 21:
-            print('BUST! Sorry you have lost his round')
+            print('Bust Sorry you have lost his round')
             game_round += 1
             cal_sum = False
             comp_turn = False
@@ -167,6 +167,7 @@ while game_on:
             game_round += 1
             print(f'Your total is {g}')
             p1.clear()
+            cal_sum = False
             
             break
     
@@ -175,7 +176,7 @@ while game_on:
         if comp_hand == 0:
             comp_hand = p2.hit(d.value)
             
-        if comp_hand < 21 and comp_hand >= g:
+        if comp_hand < 21 and comp_hand < g:
             comp_hand += p2.hit(d.value)
             
         elif comp_hand > g and comp_hand <= 21:
@@ -190,18 +191,18 @@ while game_on:
             
             break
         
-        
             
     print(f'game round: {game_round}')
     if len(new_deck.all_cards) == 0:
-        print('Game over, need a new deck!')
+        print('Game is over we are out of cards')
         game_on = False
-    if comp_hand == g or comp_hand > g:
-        print('the House has won')
-    
-               
+        break       
            
         
         
         
-    
+        
+        
+    # game_on = False
+    # break
+        
