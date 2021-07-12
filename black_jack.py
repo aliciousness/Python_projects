@@ -175,7 +175,7 @@ while game_on:
         if comp_hand == 0:
             comp_hand = p2.hit(d.value)
             
-        if comp_hand < 21 and comp_hand < g:
+        if comp_hand < 21 and comp_hand > g:
             comp_hand += p2.hit(d.value)
             
         elif comp_hand > g and comp_hand <= 21:
