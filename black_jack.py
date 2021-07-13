@@ -43,8 +43,13 @@ class Deck:
         for suit in suits:
             for rank in ranks:
                 #create the card object, to create each card and place it in the all cards att
-                create_card = Card(suit,rank)
-                self.all_cards.append(create_card)
+                self.all_cards.append(Card(suit,rank))
+    
+    def __str__(self):
+        deck_comp = ''
+        for card in self.deck:
+            deck_comp += '\n'+ card.__str__()
+        return 'The deck has: '+ deck_comp
                    
                 
         
@@ -126,8 +131,8 @@ p2 = Player('Computer')
 game_round = 0
 game_on = True
 
-for x in new_deck.all_cards:
-    print(x.value)            #checking cards and the value contributed to it
+# for x in new_deck.all_cards:
+#     print(x.value)            #checking cards and the value contributed to it
 
 while game_on:
     comp_turn = True
