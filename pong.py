@@ -39,8 +39,8 @@ ball.shape('circle')
 ball.color('white')
 ball.penup()
 ball.goto(0,0)
-ball.dx = .36
-ball.dy = .36
+ball.dx = .26
+ball.dy = .26
 
 #score 
 score_blue = 0
@@ -149,7 +149,7 @@ while True:
         ball.setx(-340)
         ball.dx *= -1
     
-    if score_blue >= 3:
+    if score_blue >= 10:
         pen.clear()
         pen.write('BLUE PLAYER IS THE WINNER', align = 'center', font = ('Courier',34, 'bold'))
         ball.goto(0,0)
@@ -159,7 +159,7 @@ while True:
         
         
         
-    if score_red >=3:
+    if score_red >=10:
         pen.clear()
         pen.write('RED PLAYER IS THE WINNER', align = 'center', font = ('Courier',34, 'bold'))
         ball.goto(0,0)
